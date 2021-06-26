@@ -45,7 +45,16 @@ class Contacts extends React.Component {
         this.setState({
             contacts: _contacts
         })
+    }
 
+    deleteContact = (id) => {
+        const _stateContacts = this.state.contacts;
+        const contactIndex = _stateContacts.findIndex(element => element.id === id);
+        _stateContacts.splice(contactIndex, 1)
+        
+        this.setState({
+            contacts: _stateContacts
+        })
     }
 
     render() {
@@ -60,6 +69,7 @@ class Contacts extends React.Component {
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Popularity</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -71,10 +81,14 @@ class Contacts extends React.Component {
                                             <img src={contact.pictureUrl} alt={contact.name}/>
                                         </td>
                                         <td>
+                                            <p>{contact.id}</p>
                                             <p>{contact.name}</p>
                                         </td>
                                         <td>
                                             <p>{contact.popularity}</p>
+                                        </td>
+                                        <td>
+                                            <button onClick={() => this.deleteContact(contact.id)}>Delete</button>
                                         </td>
                                     </tr>
                                 )
