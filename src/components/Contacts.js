@@ -23,10 +23,37 @@ class Contacts extends React.Component {
         })
     };
 
+    sortByName = () => {
+        //make a copy of this.state.contacts
+        const _contacts = this.state.contacts
+        //order the copy by name from A to Z
+        _contacts.sort((obj1, obj2) => (obj1.name > obj2.name) ? 1 : -1)
+        console.log(_contacts)
+        //setState
+        this.setState({
+            contacts: _contacts
+        })
+    }
+
+    sortByPopularity = () => {
+        //make a copy of this.state.contacts
+        const _contacts = this.state.contacts
+        //order the copy by popularity from highest to smallest
+        _contacts.sort((obj1, obj2) => (obj1.popularity > obj2.popularity) ? -1 : 1)
+        console.log(_contacts)
+        ///set State
+        this.setState({
+            contacts: _contacts
+        })
+
+    }
+
     render() {
         return(
             <div>
                 <button onClick={this.addRandomContact}>Add Random Contact</button>
+                <button onClick={this.sortByName}>Sort by name</button>
+                <button onClick={this.sortByPopularity}>Sort by popularity</button>
                 <table>
                     <thead>
                     <tr>
