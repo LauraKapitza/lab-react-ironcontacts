@@ -28,7 +28,6 @@ class Contacts extends React.Component {
         const _contacts = this.state.contacts
         //order the copy by name from A to Z
         _contacts.sort((obj1, obj2) => (obj1.name > obj2.name) ? 1 : -1)
-        console.log(_contacts)
         //setState
         this.setState({
             contacts: _contacts
@@ -40,7 +39,6 @@ class Contacts extends React.Component {
         const _contacts = this.state.contacts
         //order the copy by popularity from highest to smallest
         _contacts.sort((obj1, obj2) => (obj1.popularity > obj2.popularity) ? -1 : 1)
-        console.log(_contacts)
         ///set State
         this.setState({
             contacts: _contacts
@@ -81,7 +79,6 @@ class Contacts extends React.Component {
                                             <img src={contact.pictureUrl} alt={contact.name}/>
                                         </td>
                                         <td>
-                                            <p>{contact.id}</p>
                                             <p>{contact.name}</p>
                                         </td>
                                         <td>
